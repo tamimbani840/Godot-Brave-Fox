@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func change_wander_target() -> void:
 	target_position = original_position + Vector2( randf_range(-wander_range, wander_range), randf_range(-wander_range, wander_range) )
-	self.emit_signal("wander_target_changed")
+	wander_target_changed.emit()
 
 
 func _on_timer_timeout():

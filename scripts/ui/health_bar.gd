@@ -10,8 +10,8 @@ extends Control
 func _ready() -> void:
 	self._update_ui()
 	# connect signals
-	PlayerState.connect("max_health_changed", Callable(self, "_on_max_hearts_changed"))
-	PlayerState.connect("health_changed", Callable(self, "_on_hearts_changed"))
+	PlayerState.max_health_changed.connect(_on_max_hearts_changed)
+	PlayerState.health_changed.connect(_on_hearts_changed)
 
 
 func _update_ui() -> void:

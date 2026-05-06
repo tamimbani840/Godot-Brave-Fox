@@ -10,4 +10,4 @@ signal zero_health()
 	set(v):
 		current_health = clampi(v, 0, max_health)
 		if current_health < 1:
-			self.emit_signal("zero_health")
+			zero_health.emit()

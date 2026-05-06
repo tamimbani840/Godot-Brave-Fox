@@ -37,7 +37,7 @@ func _ready() -> void:
 	if not anim_state:
 		print_debug("Failed to get animation node state machine playback")
 		
-	PlayerState.connect("zero_health", Callable(self, "_on_damageable_zero_health"))
+	PlayerState.zero_health.connect(_on_damageable_zero_health)
 
 
 func _physics_process(delta: float) -> void:
@@ -148,5 +148,5 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	anim_player.play("Blinking")
 
 
-func _on_damageable_zero_health():
-	self.call_deferred("queue_free")
+func _on_damageable_zero_health() -> void:
+	queue_free()
